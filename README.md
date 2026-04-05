@@ -14,7 +14,7 @@ The tool also offers a (experimental) ContentCatalog.txt version sync option, wh
 
 There is an English and German localization you can pick from. I'm from Germany, so I speak mostly cheese, but I tried my best to do some English (and German).
 
-![App Overview](assets/01_interface.png)
+![App Overview](assets/01_interface.png)  
 *Look at all these buttons! Allowing Lyria to press these at will might not be the best idea, however.*
 
 It's an Electron app for Windows. You just download it, run the setup and start it. Windows might warn you about an unknown publisher, that's normal for unsigned apps. Just click "More info" and then "Run anyway". If I didn't forget, I did provide a VirusTotal Hash for your convenience. And mine.
@@ -59,7 +59,7 @@ You can sort your plugins by dragging and dropping them to a category, right-cli
 
 Please do not forget to save your Profile regularly. And also do not forget that if you do not press the Export-Button, nothing will be written to your Plugins.txt file. You maybe want to do that before you start Starfield.
 
-![Details Panel](assets/04_details.png)
+![Details Panel](assets/04_details.png)  
 *Look at the detail! It's at least 16x the detail!*
 
 The "suggested category" shows you categories with the same tags as the selected plugin if it's not categorized yet.

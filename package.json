@@ -1,0 +1,60 @@
+{
+  "name": "stoertebecker",
+  "productName": "Störtebecker",
+  "version": "0.1.0",
+  "description": "Starfield Mod Load Order Manager",
+  "main": "dist/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "start": "npm run build && electron .",
+    "watch": "tsc --watch",
+    "dist": "npm run build && electron-builder"
+  },
+  "build": {
+    "appId": "com.beepcmyk.stoertebecker",
+    "productName": "Störtebecker",
+    "asar": true,
+
+    "files": [
+      "dist/**/*",
+      "renderer/**/*",
+      "resources/**/*"
+    ],
+
+    "directories": {
+      "output": "release"
+    },
+
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        }
+      ],
+      "icon": "resources/stbkr.ico"
+    },
+
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Störtebecker"
+    }
+  },
+  "keywords": [],
+  "author": "beep-cmyk",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "^7.2.0",
+    "@types/node": "^25.5.0",
+    "electron": "^41.0.3",
+    "electron-builder": "^26.8.1",
+    "electron-rebuild": "^3.2.9",
+    "typescript": "^5.9.3"
+  }
+}

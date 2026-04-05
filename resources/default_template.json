@@ -1,0 +1,243 @@
+[
+  {
+    "id": "cat_1773898118645_tinrt",
+    "name": "00 – Master Files & DLCs",
+    "color": "#c084fc",
+    "icon": "⚙️",
+    "description": "Stuff from Bethesda",
+    "modNames": [],
+    "tags": [
+      "Bethesda"
+    ]
+  },
+  {
+    "id": "cat_1773898141564_i3t8e",
+    "name": "01 – Early Loaders",
+    "color": "#e55",
+    "icon": "🛠️",
+    "description": "Things that need to load early",
+    "modNames": [],
+    "tags": [
+      "Early Loader"
+    ]
+  },
+  {
+    "id": "cat_1773898158818_wdcss",
+    "name": "02 – Frameworks & Libraries",
+    "color": "#f0c040",
+    "icon": "📁",
+    "description": null,
+    "modNames": [],
+    "tags": [
+      "Framework",
+      "Library"
+    ]
+  },
+  {
+    "id": "cat_1773898190028_fk5de",
+    "name": "03 – Bug Fixes & Unofficial Patches",
+    "color": "#f0c040",
+    "icon": "👾",
+    "description": "Patches for Starfield itself, not for Mods",
+    "modNames": [],
+    "tags": [
+      "Patch",
+      "Fix"
+    ]
+  },
+  {
+    "id": "cat_1773898210771_qc3km",
+    "name": "04 – Large Content & System Mods",
+    "color": "#5599ff",
+    "icon": "🪐",
+    "description": "Mods that change a lot",
+    "modNames": [],
+    "tags": [
+      "Quest",
+      "Complex"
+    ]
+  },
+  {
+    "id": "cat_1773898278706_btrzd",
+    "name": "05 – Core Gameplay Overhauls",
+    "color": "#5599ff",
+    "icon": "🔧",
+    "description": null,
+    "modNames": [],
+    "tags": [
+      "Overhaul"
+    ]
+  },
+  {
+    "id": "cat_1773898308547_zfb0m",
+    "name": "06 – Quest & Story Mods",
+    "color": "#5599ff",
+    "icon": "📜",
+    "description": null,
+    "modNames": [],
+    "tags": [
+      "Quest"
+    ]
+  },
+  {
+    "id": "cat_1773898357264_4hmfc",
+    "name": "07 – New Factions & NPCs",
+    "color": "#5599ff",
+    "icon": "🎭",
+    "description": null,
+    "modNames": [],
+    "tags": [
+      "Faction",
+      "NPC",
+      "Companion"
+    ]
+  },
+  {
+    "id": "cat_1773898371798_sqxd3",
+    "name": "08 – World & Exploration",
+    "color": "#5599ff",
+    "icon": "🌍",
+    "description": null,
+    "modNames": [],
+    "tags": [
+      "POI",
+      "Vehicle",
+      "Immersion",
+      "Location"
+    ]
+  },
+  {
+    "id": "cat_1773898398295_22u9x",
+    "name": "09 – Ship Mods",
+    "color": "#5599ff",
+    "icon": "🛸",
+    "description": null,
+    "modNames": [],
+    "tags": [
+      "Ship Parts",
+      "Ships"
+    ]
+  },
+  {
+    "id": "cat_1773898446712_8s6cr",
+    "name": "10 – Outpost & Settlement",
+    "color": "#5599ff",
+    "icon": "📡",
+    "description": null,
+    "modNames": [],
+    "tags": [
+      "Outpost",
+      "Decoration"
+    ]
+  },
+  {
+    "id": "cat_1773898616423_k6ndm",
+    "name": "11 – Player Homes",
+    "color": "#5599ff",
+    "icon": "🏙️",
+    "description": null,
+    "modNames": [],
+    "tags": [
+      "Home"
+    ]
+  },
+  {
+    "id": "cat_1773898464734_manbv",
+    "name": "12 – Weapons & Armor",
+    "color": "#5599ff",
+    "icon": "⚔️",
+    "description": null,
+    "modNames": [],
+    "tags": [
+      "Weapon",
+      "Armor",
+      "Item",
+      "Clothing"
+    ]
+  },
+  {
+    "id": "cat_1773898489534_9sudq",
+    "name": "13 – Characters & Appearance",
+    "color": "#5599ff",
+    "icon": "🎨",
+    "description": null,
+    "modNames": [],
+    "tags": [
+      "Hair",
+      "Texture",
+      "Mesh"
+    ]
+  },
+  {
+    "id": "cat_1773898514638_wfno1",
+    "name": "14 – Visuals & Weather",
+    "color": "#4caf50",
+    "icon": "🏜️",
+    "description": null,
+    "modNames": [],
+    "tags": [
+      "Visual",
+      "Weather",
+      "Skin"
+    ]
+  },
+  {
+    "id": "cat_1773898552262_8aeop",
+    "name": "15 – Audio",
+    "color": "#5599ff",
+    "icon": "🔊",
+    "description": null,
+    "modNames": [],
+    "tags": [
+      "Sounds",
+      "Music",
+      "Audio"
+    ]
+  },
+  {
+    "id": "cat_1773898675516_1rt8b",
+    "name": "16 – UI & HUD",
+    "color": "#5599ff",
+    "icon": "🎨",
+    "description": null,
+    "modNames": [],
+    "tags": [
+      "UI",
+      "HUD"
+    ]
+  },
+  {
+    "id": "cat_1773898700876_eydiz",
+    "name": "17 – Performance & Fixes",
+    "color": "#5599ff",
+    "icon": "👾",
+    "description": "Fixes for Mods / Performance Mods",
+    "modNames": [],
+    "tags": [
+      "Fix",
+      "Performance"
+    ]
+  },
+  {
+    "id": "cat_1773898737694_i5ke5",
+    "name": "18 – Patches & Compatibility",
+    "color": "#c084fc",
+    "icon": "⚗️",
+    "description": "Patches for Mods",
+    "modNames": [],
+    "tags": [
+      "Patch"
+    ]
+  },
+  {
+    "id": "cat_1773898760458_pv8kw",
+    "name": "99 – Late Loaders",
+    "color": "#fb923c",
+    "icon": "🤖",
+    "description": "Mods that really want to be last",
+    "modNames": [],
+    "tags": [
+      "Late Loader"
+    ]
+  }
+]

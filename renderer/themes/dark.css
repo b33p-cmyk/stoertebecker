@@ -1,0 +1,107 @@
+:root {
+    /* ─── Hintergrundfarben ─── */
+    --bg-deep:     #1a1a1a;
+    --bg-base:     #1e1e1e;
+    --bg-surface:  #222222;
+    --bg-elevated: #242424;
+    --bg-hover:    #2a2a2a;
+    --bg-strong:   #333333;
+    --bg-tag:      #2e2e2e;
+
+    /* ─── Semantische Tints ─── */
+    --bg-tint-primary:        #2a3a4a;
+    --bg-tint-success:        #1e2a1e;
+    --bg-tint-success-strong: #1e3a1e;
+    --bg-tint-success-hover:  #243024;
+    --bg-tint-danger:         #2a1e1e;
+    --bg-tint-purple:         #2d1e4a;
+    --bg-tint-blue:           #1e2a4a;
+    --bg-tint-purple-chip:    #2a1e3a;
+    --bg-tint-cat:            #2a3a2a;
+
+    /* ─── Weiß-Tints (Zebra / Trennlinien) ─── */
+    --zebra-bg:          #ffffff02;
+    --divider-glow-edge: #ffffff08;
+    --divider-glow-mid:  #ffffff12;
+
+    /* ─── Randfarben ─── */
+    --border-subtle: #2a2a2a;
+    --border-base:   #333333;
+    --border-strong: #444444;
+    --border-focus:  #555555;
+
+    /* ─── Textfarben ─── */
+    --text-bright:         #ffffff;
+    --text-primary:        #e0e0e0;
+    --text-secondary:      #dddddd;
+    --text-muted:          #cccccc;
+    --text-subdued:        #aaaaaa;
+    --text-quiet:          #999999;
+    --text-faint:          #888888;
+    --text-dim:            #666666;
+    --text-ghost:          #555555;
+    --text-near-invisible: #444444;
+
+    /* ─── Akzentfarben ─── */
+    --color-primary:       #5599ff;
+    --color-primary-hover: #7ab3ff;
+    --color-primary-dim:   #5599ff88;
+    --color-success:       #4caf50;
+    --color-success-hover: #6fcf74;
+    --color-warning:       #f0c040;
+    --color-danger:        #e55;
+    --color-danger-solid:  #e55555;
+    --color-purple:             #a78bfa;
+    --color-purple-alpha:       #a78bfacc;
+    --color-blue-light:         #60a5fa;
+    --color-blue-light-alpha:   #60a5facc;
+    --color-amber:              #f59e0b;
+    --color-sky:                #64b5f6;
+    --color-pink:               #ee55cc;
+    --color-missing:            #ee55aa;
+    --color-purple-chip:        #c084fc;
+    --color-purple-chip-alpha:  #c084fcaa;
+    --color-primary-soft:       #5599ff99;
+    --color-success-soft:       #4caf5099;
+    --color-success-aa:         #4caf50aa;
+    --color-success-alpha:      #4caf50cc;
+    --color-warning-alpha:      #f0c040cc;
+
+    /* ─── Akzent-Tints ─── */
+    --tint-primary-subtle:     #5599ff22;
+    --tint-primary-medium:     #5599ff33;
+    --tint-primary-border:     #5599ff66;
+    --tint-success-subtle:     #4caf5022;
+    --tint-success-medium:     #4caf5033;
+    --tint-success-border:     #4caf5066;
+    --tint-success-faint:      rgba(76, 175, 80, 0.15);
+    --tint-warning-subtle:     #f0c04022;
+    --tint-warning-medium:     #f0c04033;
+    --tint-warning-border:     #f0c04066;
+    --tint-warning-faint:      #f0c04011;
+    --tint-danger-subtle:      #e5555522;
+    --tint-danger-medium:      #e5555533;
+    --tint-danger-border:      #e5555566;
+    --tint-amber-faint:        rgba(245, 158, 11, 0.15);
+    --tint-purple-border:      #a78bfa33;
+    --tint-blue-border:        #60a5fa33;
+    --tint-purple-chip-border: #c084fc33;
+    --tint-primary-selected:   #5599ff44;
+    --tint-danger-faint:       #e5555511;
+
+    /* ─── Diff-Hintergründe ─── */
+    --diff-add-bg:        #1a2e1a;
+    --diff-remove-bg:     #2e1a1a;
+    --diff-move-from-bg:  #1e1a10;
+    --diff-move-to-bg:    #2a2210;
+    --diff-move-tog-bg:   #251e10;
+    --diff-activate-bg:        #141e2a;
+    --diff-move-from-color:    #7a6a3a;
+    --diff-move-toggled-color: #c8934a;
+
+    /* ─── Overlay & Schatten ─── */
+    --overlay-bg:    #000a;
+    --overlay-bg-60: rgba(0, 0, 0, 0.6);
+    --shadow-heavy:  0 8px 24px #0008;
+    --shadow-medium: 0 4px 12px #0006;
+}

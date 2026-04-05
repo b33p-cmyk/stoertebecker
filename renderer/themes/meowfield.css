@@ -1,0 +1,110 @@
+/* themes/starfield.css */
+:root {
+    --bg-image: url(../resources/stbkr.png);
+
+    /* ─── Hintergrundfarben ─── */
+    --bg-deep:     #0a0a0fee;
+    --bg-base:     #0d0d15ee;
+    --bg-surface:  #111120bb;
+    --bg-elevated: #151525;
+    --bg-hover:    #1a1a2e;
+    --bg-strong:   #222235;
+    --bg-tag:      #1e1e30;
+
+    /* ─── Semantische Tints ─── */
+    --bg-tint-primary:        #1a2a3a;
+    --bg-tint-success:        #1a2a1a;
+    --bg-tint-success-strong: #1a3a1a;
+    --bg-tint-success-hover:  #1e2e1e;
+    --bg-tint-danger:         #2a1a1a;
+    --bg-tint-purple:         #1e1a3a;
+    --bg-tint-blue:           #0f1a2e;
+    --bg-tint-purple-chip:    #1e1a2e;
+    --bg-tint-cat:            #1a2a1a;
+
+    /* ─── Weiß-Tints ─── */
+    --zebra-bg:          #ffffff02;
+    --divider-glow-edge: #c8860008;
+    --divider-glow-mid:  #c8860018;
+
+    /* ─── Randfarben ─── */
+    --border-subtle: #1a1a2e;
+    --border-base:   #2a2a45;
+    --border-strong: #3a3a5a;
+    --border-focus:  #c88600;
+
+    /* ─── Textfarben ─── */
+    --text-bright:         #fff8f0;
+    --text-primary:        #e8d5b0;
+    --text-secondary:      #d4bc90;
+    --text-muted:          #c0a870;
+    --text-subdued:        #a08850;
+    --text-quiet:          #806840;
+    --text-faint:          #605030;
+    --text-dim:            #504028;
+    --text-ghost:          #403020;
+    --text-near-invisible: #302418;
+
+    /* ─── Akzentfarben ─── */
+    --color-primary:       #c88600;
+    --color-primary-hover: #e09a00;
+    --color-primary-dim:   #c8860088;
+    --color-success:       #4caf50;
+    --color-success-hover: #6fcf74;
+    --color-warning:       #f0c040;
+    --color-danger:        #e05a3a;
+    --color-danger-solid:  #e05a3a;
+    --color-purple:             #9b7fe8;
+    --color-purple-alpha:       #9b7fe8cc;
+    --color-blue-light:         #4a9eda;
+    --color-blue-light-alpha:   #4a9edacc;
+    --color-amber:              #c88600;
+    --color-sky:                #4a8ab5;
+    --color-pink:               #c8607a;
+    --color-missing:            #e05a3a;
+    --color-purple-chip:        #9b7fe8;
+    --color-purple-chip-alpha:  #9b7fe8aa;
+    --color-primary-soft:       #c8860099;
+    --color-success-soft:       #4caf5099;
+    --color-success-aa:         #4caf50aa;
+    --color-success-alpha:      #4caf50cc;
+    --color-warning-alpha:      #f0c040cc;
+
+    /* ─── Akzent-Tints ─── */
+    --tint-primary-subtle:     #c8860022;
+    --tint-primary-medium:     #c8860033;
+    --tint-primary-border:     #c8860066;
+    --tint-success-subtle:     #4caf5022;
+    --tint-success-medium:     #4caf5033;
+    --tint-success-border:     #4caf5066;
+    --tint-success-faint:      rgba(76, 175, 80, 0.15);
+    --tint-warning-subtle:     #f0c04022;
+    --tint-warning-medium:     #f0c04033;
+    --tint-warning-border:     #f0c04066;
+    --tint-warning-faint:      #f0c04011;
+    --tint-danger-subtle:      #e05a3a22;
+    --tint-danger-medium:      #e05a3a33;
+    --tint-danger-border:      #e05a3a66;
+    --tint-amber-faint:        rgba(200, 134, 0, 0.15);
+    --tint-purple-border:      #9b7fe833;
+    --tint-blue-border:        #4a9eda33;
+    --tint-purple-chip-border: #9b7fe833;
+    --tint-primary-selected:   #c8860044;
+    --tint-danger-faint:       #e05a3a11;
+
+    /* ─── Diff-Hintergründe ─── */
+    --diff-add-bg:        #0a1e0a;
+    --diff-remove-bg:     #2a1008;
+    --diff-move-from-bg:  #1a1508;
+    --diff-move-to-bg:    #201a08;
+    --diff-move-tog-bg:   #1e1608;
+    --diff-activate-bg:        #0a1220;
+    --diff-move-from-color:    #8a7040;
+    --diff-move-toggled-color: #c8934a;
+
+    /* ─── Overlay & Schatten ─── */
+    --overlay-bg:    #000a;
+    --overlay-bg-60: rgba(0, 0, 5, 0.7);
+    --shadow-heavy:  0 8px 24px rgba(0, 0, 0, 0.9);
+    --shadow-medium: 0 4px 12px rgba(0, 0, 0, 0.7);
+}

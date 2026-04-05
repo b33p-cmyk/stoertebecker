@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'">
+  <title>Störtebecker</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="fontawesome/css/all.min.css" />
+  <link id="theme-stylesheet" rel="stylesheet" href="themes/dark.css" />
+</head>
+
+<body>
+  <div id="app">
+    <header>
+      <button id="about-trigger" class="about-trigger">
+        <img src="../resources/stbkr.png" class="app-logo">
+        <div class="app-logo-placeholder"></div>
+        <div class="app-title">
+          <h1 data-i18n="app.title">Störtebecker</h1>
+          <span class="app-subtitle" data-i18n="app.subtitle">Starfield Load Order Baker</span>
+        </div>
+      </button>
+      <div id="plugin-count"></div>
+      <div class="launch-bar" id="launch-bar">
+      </div>
+      <div class="locale-switcher">
+        <button class="locale-btn" data-locale="de">DE</button>
+        <button class="locale-btn" data-locale="en">EN</button>
+      </div>
+    </header>
+
+    <div class="toolbar">
+      <div class="toolbar-left">
+        <button id="btn-export" data-i18n="toolbar.export" class="btn btn-export"><i class="fa-solid fa-file-export" aria-hidden="true"></i> Export</button>
+        <button id="btn-save" class="btn btn-save" data-i18n="toolbar.save" disabled><i class="fa-solid fa-floppy-disk" aria-hidden="true"></i> Speichern</button>
+        <button id="btn-add-category" data-i18n="toolbar.addCategory" class="btn"><i class="fa-solid fa-folder-plus" aria-hidden="true"></i> Neue Kategorie</button>
+        <button id="btn-expand" class="btn btn-ghost btn-icon" data-i18n-title="toolbar.expand"><i class="fa-solid fa-angles-down" aria-hidden="true"></i></button>
+        <button id="btn-collapse" class="btn btn-ghost btn-icon" data-i18n-title="toolbar.collapse"><i class="fa-solid fa-angles-right" aria-hidden="true"></i></button>
+        
+        <button id="btn-diff" class="btn" data-i18n="toolbar.diff"><i class="fa-solid fa-code-compare" aria-hidden="true"></i> Vergleich</button>
+        <div class="sync-btn-wrapper">
+          <button id="btn-fix-catalog" class="btn btn-warn" data-i18n-title="toolbar.syncCatalog" style="display:none"><i class="fa-solid fa-rotate" aria-hidden="true"></i></button>
+          <span id="sync-badge" class="sync-badge hidden">0</span>
+        </div>
+        
+        <!--<button id="btn-conflicts" class="btn" data-i18n="toolbar.conflicts">Konflikte</button>--><!-- Na wenn das jemals funktioniert, dann ist der Button hier -->
+        <button id="btn-undo" class="btn btn-ghost btn-icon" data-i18n-title="toolbar.undo" disabled><i class="fa-solid fa-rotate-left" aria-hidden="true"></i></button>
+        <button id="btn-redo" class="btn btn-ghost btn-icon" data-i18n-title="toolbar.redo" disabled><i class="fa-solid fa-rotate-right" aria-hidden="true"></i></button>
+      </div>
+      <div class="toolbar-center">
+        <div class="profile-switcher">
+          <button id="btn-profile" class="btn btn-profile">
+            <span id="profile-name">Default</span>
+            <span class="profile-arrow"><i class="fa-solid fa-chevron-down" aria-hidden="true"></i></span>
+          </button>
+          <div id="profile-dropdown" class="profile-dropdown hidden">
+            <div id="profile-list" class="profile-list"></div>
+            <div class="profile-dropdown-actions">
+              <button id="btn-new-profile" class="profile-action-btn" data-i18n="profile.action.new"><i class="fa-solid fa-plus" aria-hidden="true"></i> Neues Profil</button>
+              <button id="btn-duplicate-profile" class="profile-action-btn" data-i18n="profile.action.duplicate"><i class="fa-solid fa-copy" aria-hidden="true"></i> Duplizieren</button>
+              <button id="btn-edit-profile" class="profile-action-btn" data-i18n="profile.action.edit"><i class="fa-solid fa-pen" aria-hidden="true"></i> Bearbeiten</button>
+              <button id="btn-set-template" class="profile-action-btn" data-i18n="profile.action.setTemplate"><i class="fa-solid fa-stamp" aria-hidden="true"></i> Als Template setzen</button>
+              <button id="btn-delete-profile" class="profile-action-btn danger" data-i18n="profile.action.delete"><i class="fa-solid fa-trash" aria-hidden="true"></i> Löschen</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="toolbar-right">
+        <div class="search-wrapper">
+          <input id="search" class="search-input" type="text" data-i18n-placeholder="toolbar.search" />
+            <button id="search-clear" class="search-clear" tabindex="-1" aria-label="Suche löschen"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+        </div>
+        <div class="filter-btn-wrapper">
+          <button id="btn-filter" class="btn btn-icon" data-i18n-title="filter.button"><i class="fa-solid fa-filter" aria-hidden="true"></i></button>
+          <span id="filter-badge" class="filter-badge hidden">0</span>
+        </div>
+        <button id="btn-settings" class="btn btn-icon tooltip-left" data-i18n-title="toolbar.settings"><i class="fa-solid fa-gear" aria-hidden="true"></i></button>
+      </div>
+    </div>
+
+    <!-- Filter Panel -->
+    <div id="filter-panel" class="filter-panel hidden">
+      <div class="filter-panel-inner">
+
+        <div class="filter-section">
+          <div class="filter-section-title" data-i18n="filter.section.status">Status</div>
+          <div class="filter-chip-group" id="filter-status-group">
+            <button class="filter-chip filter-chip-radio active" data-value="all"          data-i18n="filter.status.all">Alle</button>
+            <button class="filter-chip filter-chip-radio"        data-value="active"        data-i18n="filter.status.active">Aktiv</button>
+            <button class="filter-chip filter-chip-radio"        data-value="inactive"      data-i18n="filter.status.inactive">Inaktiv</button>
+            <button class="filter-chip filter-chip-radio"        data-value="not-installed" data-i18n="filter.status.notInstalled">Nicht installiert</button>
+          </div>
+        </div>
+
+        <div class="filter-section">
+          <div class="filter-section-title" data-i18n="filter.section.type">Typ</div>
+          <div class="filter-chip-group" id="filter-type-group">
+            <button class="filter-chip filter-chip-check" data-value="master"          data-i18n="filter.type.master">Master (ESM)</button>
+            <button class="filter-chip filter-chip-check" data-value="mediumMaster"    data-i18n="filter.type.mediumMaster">Medium Master (ESH)</button>
+            <button class="filter-chip filter-chip-check" data-value="lightMaster"     data-i18n="filter.type.lightMaster">Light Master (ESL)</button>
+            <button class="filter-chip filter-chip-check" data-value="overlay"         data-i18n="filter.type.overlay">Overlay</button>
+            <button class="filter-chip filter-chip-check" data-value="regular"         data-i18n="filter.type.regular">Plugin (ESP)</button>
+            <button class="filter-chip filter-chip-check" data-value="achievementSafe"    data-i18n="filter.type.achievementSafe">Achievement Safe</button>
+            <button class="filter-chip filter-chip-check" data-value="notAchievementSafe" data-i18n="filter.type.notAchievementSafe">Nicht Achievement Safe</button>
+            <button class="filter-chip filter-chip-check" data-value="missingMasters"     data-i18n="filter.type.missingMasters">Fehlende Master</button>
+          </div>
+        </div>
+
+        <div class="filter-section">
+          <div class="filter-section-title" data-i18n="filter.section.rating">Mindestbewertung</div>
+          <div class="filter-chip-group" id="filter-rating-group">
+            <button class="filter-chip filter-chip-radio active" data-value="0" data-i18n="filter.rating.any">Alle</button>
+            <button class="filter-chip filter-chip-radio" data-value="1">★</button>
+            <button class="filter-chip filter-chip-radio" data-value="2">★★</button>
+            <button class="filter-chip filter-chip-radio" data-value="3">★★★</button>
+            <button class="filter-chip filter-chip-radio" data-value="4">★★★★</button>
+            <button class="filter-chip filter-chip-radio" data-value="5">★★★★★</button>
+          </div>
+        </div>
+
+        <div class="filter-section">
+          <div class="filter-section-title" data-i18n="filter.section.quick">Schnellfilter</div>
+          <div class="filter-chip-group" id="filter-quick-group">
+            <button class="filter-chip filter-chip-check" data-value="hasUrl"      data-i18n="filter.quick.hasUrl">Hat URL</button>
+            <button class="filter-chip filter-chip-check" data-value="hasNotes"   data-i18n="filter.quick.hasNotes">Hat Notizen</button>
+            <button class="filter-chip filter-chip-check" data-value="hasWarnings" data-i18n="filter.quick.hasWarnings">Hat Warnungen</button>
+          </div>
+        </div>
+
+        <div class="filter-section filter-section-tags">
+          <div class="filter-section-title" data-i18n="filter.section.tags">Tags</div>
+          <div class="filter-chip-group">
+            <button id="filter-no-tags-chip" class="filter-chip filter-chip-check" data-value="noTags" data-i18n="filter.tags.noTags">Hat keine Tags</button>
+          </div>
+          <div class="filter-chip-group filter-tag-cloud" id="filter-tag-group"></div>
+        </div>
+
+        <div class="filter-footer">
+          <button id="filter-reset" class="btn btn-ghost" data-i18n="filter.reset">Alles zurücksetzen</button>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="content-area">
+      <main>
+        <div id="loading" class="loading">
+          <div class="spinner"></div>
+          <span data-i18n="loading.plugins">Lade Plugins…</span>
+        </div>
+        <ul id="plugin-list" class="plugin-list hidden"></ul>
+      </main>
+
+      <aside id="detail-panel" class="detail-panel hidden">
+        <div id="detail-resize-handle" class="detail-resize-handle"></div>
+        <div class="detail-header">
+          <div class="detail-title-row">
+            <span id="detail-icon" class="detail-icon"></span>
+            <div>
+              <div id="detail-name" class="detail-name"></div>
+              <div id="detail-filename" class="detail-filename"></div>
+            </div>
+          </div>
+          <button id="detail-close" class="btn btn-ghost detail-close"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+        </div>
+
+        <div class="detail-body">
+          <div class="detail-row">
+            <span class="detail-label" data-i18n="detail.category">Kategorie</span>
+            <span id="detail-category" class="detail-value"></span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label" data-i18n="detail.achievementSafe">Achievement Safe</span>
+            <span id="detail-achievement" class="detail-value"></span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label" data-i18n="detail.rating">Bewertung</span>
+            <div id="detail-rating" class="star-rating">
+              <span class="star" data-value="1">★</span>
+              <span class="star" data-value="2">★</span>
+              <span class="star" data-value="3">★</span>
+              <span class="star" data-value="4">★</span>
+              <span class="star" data-value="5">★</span>
+            </div>
+          </div>
+          <div class="detail-field">
+            <label class="detail-label" data-i18n="detail.url">URL</label>
+            <div class="detail-input-row">
+              <input id="detail-url" class="input detail-input" type="url" placeholder="https://www.nexusmods.com/…" />
+              <button id="detail-url-open" class="btn" data-i18n-title="detail.openInBrowser"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></button>
+            </div>
+          </div>
+          <div class="detail-field">
+            <label class="detail-label" data-i18n="detail.notes">Notizen</label>
+            <textarea id="detail-notes" class="input detail-textarea"
+              data-i18n-placeholder="detail.notesPlaceholder" spellcheck="false"></textarea>
+          </div>
+        </div>
+
+        <div class="detail-footer">
+          <button id="detail-save" class="btn btn-primary" data-i18n="detail.save"><i class="fa-solid fa-floppy-disk" aria-hidden="true"></i> Speichern</button>
+        </div>
+      </aside>
+    </div>
+
+    <div id="log-panel" class="log-panel collapsed">
+      <div id="log-header" class="log-header">
+        <div class="log-header-left">
+          <span class="log-arrow"><i class="fa-solid fa-chevron-up" aria-hidden="true"></i></span>
+          <span id="log-badge" class="log-badge hidden"></span>
+          <span class="log-title" data-i18n="log.title">Log</span>
+        </div>
+        <div class="log-header-right">
+          <label id="log-filter-label" class="log-filter-label">
+            <input type="checkbox" id="log-hide-warnings" />
+            <span data-i18n="log.hideWarnings">Warnungen ausblenden</span>
+          </label>
+          <button id="log-clear" class="btn btn-ghost" data-i18n="log.clear">Leeren</button>
+        </div>
+      </div>
+      <div id="log-body" class="log-body"></div>
+    </div>
+  </div>
+
+  <!-- Profil-Dalog zum Erstellen/Bearbeiten -->
+  <div id="profile-dialog-overlay" class="overlay hidden">
+    <div class="dialog" style="width:380px;">
+      <h2 id="profile-dialog-title">Neues Profil</h2>
+      <div class="form-row">
+        <label data-i18n="dialog.category.icon">Icon</label>
+        <input id="profile-icon-input" type="text" maxlength="2" class="input input-icon" readonly placeholder="🚀" />
+      </div>
+      <div class="form-row">
+        <label data-i18n="dialog.category.name">Name <span class="required">*</span></label>
+        <input id="profile-name-input" type="text" class="input" />
+      </div>
+      <div class="form-row">
+        <label data-i18n="dialog.category.desc">Beschreibung</label>
+        <textarea id="profile-desc-input" class="input" rows="3" style="resize:vertical;"></textarea>
+      </div>
+      <div class="form-row">
+        <label data-i18n="dialog.category.color">Farbe</label>
+        <div class="color-picker" id="profile-color-picker">
+          <div class="color-swatch selected" data-color="#5599ff" style="background:#5599ff"></div>
+          <div class="color-swatch" data-color="#4caf50" style="background:#4caf50"></div>
+          <div class="color-swatch" data-color="#f0c040" style="background:#f0c040"></div>
+          <div class="color-swatch" data-color="#e55" style="background:#e55"></div>
+          <div class="color-swatch" data-color="#c084fc" style="background:#c084fc"></div>
+          <div class="color-swatch" data-color="#fb923c" style="background:#fb923c"></div>
+          <div class="color-swatch" data-color="#888" style="background:#888"></div>
+        </div>
+      </div>
+      <div class="form-row">
+        <label data-i18n="dialog.profile.group">Gruppe</label>
+        <input id="profile-group-input" type="text" class="input" data-i18n-placeholder="dialog.profile.groupPlaceholder" />
+      </div>
+      <div class="dialog-actions">
+        <button class="btn btn-ghost" id="profile-dialog-cancel" data-i18n="dialog.cancel">Abbrechen</button>
+        <button class="btn btn-primary" id="profile-dialog-save" data-i18n="dialog.create">Erstellen</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Kategorie Dialog -->
+  <div id="overlay" class="overlay hidden">
+    <div class="dialog">
+      <h2 data-i18n="dialog.newCategory">Neue Kategorie</h2>
+      <div class="form-row">
+        <label data-i18n="dialog.category.icon">Icon</label>
+        <input id="cat-icon" type="text" maxlength="2" data-i18n-placeholder="dialog.category.iconPlaceholder"
+          class="input input-icon" />
+      </div>
+      <div class="form-row">
+        <label data-i18n="dialog.category.name">Name <span class="required">*</span></label>
+        <input id="cat-name" type="text" data-i18n-placeholder="dialog.category.namePlaceholder" class="input" />
+      </div>
+      <div class="form-row">
+        <label data-i18n="dialog.category.desc">Beschreibung</label>
+        <input id="cat-desc" type="text" data-i18n-placeholder="dialog.category.descPlaceholder" class="input" />
+      </div>
+      <div class="form-row">
+        <label data-i18n="dialog.category.color">Farbe</label>
+        <div class="color-picker">
+          <div class="color-swatch selected" data-color="#5599ff" style="background:#5599ff"></div>
+          <div class="color-swatch" data-color="#4caf50" style="background:#4caf50"></div>
+          <div class="color-swatch" data-color="#f0c040" style="background:#f0c040"></div>
+          <div class="color-swatch" data-color="#e55" style="background:#e55"></div>
+          <div class="color-swatch" data-color="#c084fc" style="background:#c084fc"></div>
+          <div class="color-swatch" data-color="#fb923c" style="background:#fb923c"></div>
+          <div class="color-swatch" data-color="#888" style="background:#888"></div>
+        </div>
+      </div>
+      <div class="form-row">
+        <label data-i18n="detail.tags">Tags</label>
+        <div id="cat-tags-container"></div>
+      </div>
+      <div class="dialog-actions">
+        <button id="btn-cancel" class="btn btn-ghost" data-i18n="dialog.cancel">Abbrechen</button>
+        <button id="btn-save-category" class="btn btn-primary" data-i18n="dialog.create">Erstellen</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="confirm-overlay" class="overlay hidden">
+    <div class="dialog dialog-confirm">
+      <p id="confirm-message"></p>
+      <div class="dialog-actions">
+        <button id="confirm-cancel" class="btn btn-ghost" data-i18n="dialog.cancel">Abbrechen</button>
+        <button id="confirm-ok" class="btn btn-danger" data-i18n="dialog.ok">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="settings-page" class="settings-page hidden">
+    <div class="settings-header">
+      <button id="btn-settings-back" class="btn btn-ghost" data-i18n="settings.back"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Zurück</button>
+      <h2 data-i18n="settings.title">Einstellungen</h2>
+    </div>
+    <div class="settings-body">
+      <div class="settings-section">
+        <h3 data-i18n="settings.appearance">Darstellung</h3>
+
+        <div class="settings-field">
+          <label data-i18n="settings.theme">Theme</label>
+          <div class="theme-select-wrapper">
+            <div class="theme-select" id="theme-select">
+              <button class="theme-select-btn" id="theme-select-btn" type="button">
+                <span id="theme-select-label">Dark</span>
+                <span class="theme-select-arrow"><i class="fa-solid fa-chevron-down" aria-hidden="true"></i></span>
+              </button>
+              <div class="theme-select-dropdown hidden" id="theme-select-dropdown">
+                
+              </div>
+            </div>
+            <p class="theme-select-desc" id="theme-select-desc"></p>
+          </div>
+        </div>
+
+        <div class="settings-field">
+          <label>
+            <span data-i18n="settings.fontSize">Schriftgröße</span>:
+            <span id="font-size-display">14</span> px
+          </label>
+          <input id="settings-font-size" type="range" min="12" max="24" step="1" value="14" class="font-size-slider" />
+        </div>
+      </div>
+
+      <div class="settings-section">
+        <h3 data-i18n="settings.paths">Pfade</h3>
+        <p class="settings-section-hint" data-i18n="settings.starfield.pathsAbsolute">Pfade sollten absolut sein, nicht relativ.</p>
+        <div class="settings-field">
+          <label data-i18n="settings.starfieldAppData">Starfield AppData-Pfad</label>
+          <p class="settings-hint" data-i18n="settings.starfieldAppData.hint">Enthält Plugins.txt und ContentCatalog.txt
+          </p>
+          <div class="settings-path-row">
+            <input id="settings-appdata-path" class="input" type="text" />
+            <button id="btn-pick-appdata" class="btn" data-i18n="settings.browse">Durchsuchen</button>
+          </div>
+        </div>
+
+        <div class="settings-field settings-checkbox-field">
+          <label>
+            <input type="checkbox" id="settings-create-backup" />
+            <span data-i18n="settings.createBackupOnExport">Backup beim Export erstellen</span>
+          </label>
+          <p class="settings-hint" data-i18n="settings.createBackupOnExport.hint">Sichert Plugins.txt vor jedem Export automatisch</p>
+        </div>
+
+        <div class="settings-field settings-checkbox-field">
+          <label>
+            <input type="checkbox" id="settings-autoSyncContentCatalog" />
+            <span data-i18n="settings.autoSyncContentCatalog">ContentCatalog.txt automatisch schreiben</span>
+          </label>
+          <p class="settings-hint" data-i18n="settings.autoSyncContentCatalog.hint">Schreibt die ContentCatalog.txt beim Start von Starfield aus neu</p>
+        </div>
+
+        <div class="settings-field settings-checkbox-field">
+          <label>
+            <input type="checkbox" id="settings-createContentCatalogBackupOnSync" />
+            <span data-i18n="settings.createContentCatalogBackupOnSync">Backup von ContentCatalog.txt beim Sync erstellen</span>
+          </label>
+          <p class="settings-hint" data-i18n="settings.createContentCatalogBackupOnSync.hint">Sichert ContentCatalog.txt automatisch vor jeder Synchronisation</p>
+        </div>
+
+        <div class="settings-field">
+          <label data-i18n="settings.starfieldData">Starfield Data-Pfad</label>
+          <p class="settings-hint" data-i18n="settings.starfieldData.hint">Enthält die .esm/.esp/.esl Dateien</p>
+          <div class="settings-path-row">
+            <input id="settings-data-path" class="input" type="text" />
+            <button id="btn-pick-data" class="btn" data-i18n="settings.browse">Durchsuchen</button>
+          </div>
+        </div>
+
+        <div class="settings-field">
+          <label data-i18n="settings.appData">App-Daten Pfad</label>
+          <p class="settings-hint" data-i18n="settings.appData.hint">Enthält Profile und Metadaten</p>
+          <div class="settings-path-row">
+            <input id="settings-app-path" class="input" type="text" />
+            <button id="btn-pick-app" class="btn" data-i18n="settings.browse">Durchsuchen</button>
+          </div>
+        </div>
+      </div>
+      <div class="settings-section">
+        <h3 data-i18n="settings.masters">Basis-Master Dateien</h3>
+
+        <div class="settings-field">
+          <label data-i18n="settings.baseMasters">Base Masters</label>
+          <p class="settings-hint" data-i18n="settings.baseMasters.hint">ESMs die immer geladen werden - eine Datei pro
+            Zeile</p>
+          <textarea id="settings-base-masters" class="input settings-textarea"></textarea>
+        </div>
+
+        <div class="settings-field">
+          <label data-i18n="settings.blueprintMasters">Blueprint Masters</label>
+          <p class="settings-hint" data-i18n="settings.blueprintMasters.hint">ESMs nach denen abhängige Mods ans Ende
+            müssen - eine Datei pro Zeile</p>
+          <textarea id="settings-blueprint-masters" class="input settings-textarea"></textarea>
+        </div>
+
+        <div class="settings-field settings-checkbox-field">
+          <label>
+            <input type="checkbox" id="settings-ignore-base-masters" />
+            <span data-i18n="settings.ignoreBaseMasters">Base Masters ignorieren (nicht laden, nicht exportieren)</span>
+          </label>
+        </div>
+
+        <div class="settings-field settings-checkbox-field">
+          <label>
+            <input type="checkbox" id="settings-ignore-blueprint-masters" />
+            <span data-i18n="settings.ignoreBlueprintMasters">Blueprint Masters ignorieren (nicht laden, nicht exportieren)</span>
+          </label>
+        </div>
+      </div>
+      <div class="settings-section">
+        <h3 data-i18n="settings.launch">Starten</h3>
+        <p class="settings-section-hint"  data-i18n="settings.starfield.pathsAbsolute">Pfade sollten absolut sein, nicht relativ.</p>
+
+        <div class="settings-field">
+          <label data-i18n="settings.sfseExe">SFSE Executable</label>
+          <p class="settings-hint" data-i18n="settings.sfseExe.hint">Pfad zur sfse_loader.exe</p>
+          <div class="settings-path-row">
+            <input id="settings-sfse-exe" class="input" type="text" />
+            <button id="btn-pick-sfse" class="btn" data-i18n="settings.browse">Durchsuchen</button>
+          </div>
+        </div>
+
+        <div class="settings-field">
+          <label data-i18n="settings.starfieldExe">Starfield Executable</label>
+          <p class="settings-hint" data-i18n="settings.starfieldExe.hint">Pfad zur Starfield.exe (ohne SFSE)</p>
+          <div class="settings-path-row">
+            <input id="settings-starfield-exe" class="input" type="text" />
+            <button id="btn-pick-starfield" class="btn" data-i18n="settings.browse">Durchsuchen</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="settings-footer">
+      <button id="btn-settings-reset" class="btn btn-ghost" data-i18n="settings.reset">Zurücksetzen</button>
+      <button id="btn-settings-save" class="btn btn-primary" data-i18n="settings.save">Speichern & Neu laden</button>
+    </div>
+  </div>
+
+  <div id="diff-dialog" class="diff-dialog-overlay hidden">
+    <div class="diff-dialog">
+      <div class="diff-dialog-header">
+        <span data-i18n="diff.title">Vergleich: Plugins.txt</span>
+        <div id="diff-summary" class="diff-summary"></div>
+        <button id="diff-close" class="diff-close"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+      </div>
+      <div id="diff-list" class="diff-list"></div>
+    </div>
+  </div>
+
+  <div id="conflict-dialog" class="conflict-dialog-overlay hidden">
+    <div class="conflict-dialog">
+      <div class="conflict-dialog-header">
+        <span data-i18n="conflicts.title">Konflikt-Analyse</span>
+        <div id="conflict-summary" class="conflict-summary"></div>
+        <button id="conflict-close" class="conflict-close"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+      </div>
+      <div id="conflict-progress-bar" class="conflict-progress-bar hidden">
+        <div id="conflict-progress-fill" class="conflict-progress-fill"></div>
+        <span id="conflict-progress-label" class="conflict-progress-label"></span>
+      </div>
+      <div id="conflict-list" class="conflict-list"></div>
+    </div>
+  </div>
+
+  <div id="about-dialog-overlay" class="overlay hidden">
+    <div class="dialog about-dialog">
+      <div class="about-hero">
+        <img src="../resources/stbkr.png" alt="Störtebecker Logo" class="about-logo">
+        <button id="about-close" class="btn btn-ghost btn-icon about-close-btn" data-i18n-title="about.close">
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div class="about-title-block">
+        <h2 data-i18n="about.title">Störtebecker</h2>
+        <span class="about-subtitle" data-i18n="about.subtitle">Starfield Load Order Baker</span>
+        <span class="about-version" data-i18n="about.version">Version …</span>
+      </div>
+      <div class="about-section">
+        <div class="about-row">
+          <span class="about-label" data-i18n="about.label.author">Autor</span>
+          <span class="about-value" data-i18n="about.author">beep-cmyk</span>
+        </div>
+        <div class="about-row">
+          <span class="about-label" data-i18n="about.label.license">Lizenz</span>
+          <span class="about-value">GPL-3.0-or-later</span>
+        </div>
+      </div>
+      <div class="about-section">
+        <p class="about-attribution" data-i18n="about.fontawesome">
+          Enthält Font Awesome Free - lizenziert unter SIL OFL 1.1 (Icons), MIT (CSS), CC BY 4.0 (Dokumentation).
+        </p>
+      </div>
+      <div class="dialog-actions">
+        <button id="about-close-btn" class="btn btn-primary" data-i18n="about.close">Schließen</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="renderer.js"></script>
+</body>
+
+</html>

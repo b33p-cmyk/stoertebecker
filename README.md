@@ -131,12 +131,12 @@ Störtebecker and Starfield Load Order Baker sound similar, at least if you squi
 ```bash
 git clone https://github.com/b33p-cmyk/stoertebecker.git
 cd stoertebecker
-npm install
+npm run build
 npm start
 ```
 
 To build a release:
 
 ```bash
-npm run dist
+npm run build && electron-builder
 ```

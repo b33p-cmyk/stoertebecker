@@ -1,6 +1,8 @@
 > "Yarr mateys! Have you ever wanted to organize your mod list yourself instead of having the order get thrown around every time you change something? Ever wanted to use profiles for load orders? Well, then this tool might be for you! Come on in and have a hook! HARR. LOOK. Sorry, too much ale! "
 
-![Logo](assets/stbkr.png)
+<p align="center">
+  <img src="assets/stbkr.png" alt="Logo">
+</p>
 
 # Störtebecker - Starfield Load Order Baker
 
@@ -19,7 +21,9 @@ It's an Electron app for Windows. You just download it, run the setup and start 
 
 Störtebecker will try to prefill the paths to your Starfield-Data Directory, but you might want to check in the settings. Störtebecker will keep all its files in a folder aptly named **STBKR_Data** in some directory - you can see where this is in the settings (usually in AppData/Roaming). So if you do search something, therein the treasures of profiles, settings and the catalog-db or your plugin-metadata (your rating, notes and stuff) be buried.
 
-![Separator](assets/fishies.png)
+<p align="center">
+  <img src="assets/fishies.png" alt="Separator">
+</p>
 
 ## The Workflow
 
@@ -28,7 +32,9 @@ To overwrite the current Plugins.txt you will need to press **Export** manually.
 
 I placed the **Export** and **Save** Buttons pleasantly close to each other on the top left of the window, you can't miss them!
 
-![Separator](assets/fishies.png)
+<p align="center">
+  <img src="assets/fishies.png" alt="Separator">
+</p>
 
 ## The Setting(s)
 
@@ -38,7 +44,9 @@ Note all these grand options. Settings. MEOW. You're the master of your ship, co
 
 Also note that Störtebecker generates a lot of backups by default. Just in case you're wondering. But you might have also seen that we do support some themes. Currently there's "Dark" (as in the screenshots), but also "Light" if you're more the paladin type of human. A "High-Contrast" one and a special "Starfield" theme is also already supplied. Because colors mean fun, and fun means fun, so more fun!
 
-![Separator](assets/fishies.png)
+<p align="center">
+  <img src="assets/fishies.png" alt="Separator">
+</p>
 
 ## The Sorting
 
@@ -63,7 +71,9 @@ You will also see information from the plugin file itself, like its dependencies
 
 ![Error View](assets/05_errors.png)
 
-![Separator](assets/fishies.png)
+<p align="center">
+  <img src="assets/fishies.png" alt="Separator">
+</p>
 
 ## The Differences
 
@@ -72,7 +82,9 @@ You will also see information from the plugin file itself, like its dependencies
 Störtebecker provides a differences-view, showing you what would change if the current profile would be applied to the current plugins.txt. That's useful if, say, Starfield decided to rearrange your plugins after you updated one or you just want to see what happened.
 Or not. Up to you!
 
-![Separator](assets/fishies.png)
+<p align="center">
+  <img src="assets/fishies.png" alt="Separator">
+</p>
 
 ## The Catalog Sync
 
@@ -84,18 +96,24 @@ This should secure that your versions don't get overwritten.
 
 Note: You might need to re-download some mods if the entries in your ContentCatalog.txt are already defective. Or if a mod actually updated. If that's the case, please remember to sync the file before loading a save! Restarting Starfield after mod updates is generally not the worst idea.
 
-![Separator](assets/fishies.png)
+<p align="center">
+  <img src="assets/fishies.png" alt="Separator">
+</p>
 
 That's all I can think of right now. Have fun with this! Tüddelü!
 
 *X One-eyed Ben, Captain of the Salty Hippo*
 
-![Separator](assets/fishies.png)
+<p align="center">
+  <img src="assets/fishies.png" alt="Separator">
+</p>
 
 **PS: Why the name?**
 Störtebecker and Starfield Load Order Baker sound similar, at least if you squint with your ears a little. Hah! I knew you'd try! Also, pirates, cats, and Starfield - what's not to love?
 
-![Separator](assets/fishies.png)
+<p align="center">
+  <img src="assets/fishies.png" alt="Separator">
+</p>
 
 ## The Themes
 
@@ -104,7 +122,9 @@ Störtebecker and Starfield Load Order Baker sound similar, at least if you squi
 ![High Contrast](assets/99_theme_contrast.png)
 ![Starfield](assets/99_theme_starfield.png)
 
-![Separator](assets/fishies.png)
+<p align="center">
+  <img src="assets/fishies.png" alt="Separator">
+</p>
 
 ## Building from Source
 

@@ -64,6 +64,17 @@ const translations = {
         'filter.rating.any': 'Alle',
         'toolbar.undo': 'Rückgängig (Ctrl+Z)',
         'toolbar.redo': 'Wiederholen (Ctrl+Y)',
+        'toolbar.scanSave': '<i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i> Scan Savegame',
+
+        // Save scan dialog
+        'save.lastPlayed': 'Gespeichert',
+        'save.character': 'Charakter',
+        'save.playtime': 'Spielzeit',
+        'save.missing': 'Fehlende Plugins ({n})',
+        'save.extra': 'Zusätzliche Plugins ({n})',
+        'save.reason.inactive': 'inaktiv',
+        'save.reason.missing': 'fehlt',
+        'save.file': 'Datei',
 
         // Loading
         'loading.plugins': 'Lade Plugins…',
@@ -296,6 +307,13 @@ const translations = {
         "emoji.category.grafik": "🎨 Grafik",
         "emoji.category.audio": "🔊 Audio",
         "emoji.category.misc": "📋 Misc",
+
+        // Time
+        
+        "day": "Tag",
+        "days": "Tage",
+        "hour": "Stunden",
+        "minutes": "Minuten",
     },
 
     en: {
@@ -329,6 +347,9 @@ const translations = {
         'toolbar.settings': 'Settings',
         'toolbar.expand': 'Expand all categories',
         'toolbar.collapse': 'Collapse all categories',
+        'toolbar.undo': 'Undo (Ctrl+Z)',
+        'toolbar.redo': 'Redo (Ctrl+Y)',
+        'toolbar.scanSave': '<i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i> Scan Savegame',
 
 
         // Filter
@@ -358,8 +379,16 @@ const translations = {
         'filter.tags.noTags': 'Has no tags',
         'filter.noTags': 'No tags available',
         'filter.rating.any': 'All',
-        'toolbar.undo': 'Undo (Ctrl+Z)',
-        'toolbar.redo': 'Redo (Ctrl+Y)',
+
+        // Save scan dialog
+        'save.lastPlayed': 'Saved',
+        'save.character': 'Character',
+        'save.playtime': 'Playtime',
+        'save.missing': 'Missing Plugins ({n})',
+        'save.extra': 'Additional Plugins ({n})',
+        'save.reason.inactive': 'inactive',
+        'save.reason.missing': 'not found',
+        'save.file': 'File',
 
         'loading.plugins': 'Loading plugins…',
         'loading.error': 'Error: {msg}',
@@ -572,7 +601,13 @@ const translations = {
         "emoji.category.technik": "🔧 Tech",
         "emoji.category.grafik": "🎨 Graphics",
         "emoji.category.audio": "🔊 Audio",
-        "emoji.category.misc": "📋 Misc"
+        "emoji.category.misc": "📋 Misc",
+        
+        "day": "day",
+        "days": "days",
+        "hour": "hours",
+        "minutes": "minutes",
+
     }
 };
 

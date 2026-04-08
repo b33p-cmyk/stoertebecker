@@ -56,4 +56,5 @@ contextBridge.exposeInMainWorld('starfieldAPI', {
   onConfirmClose: (callback: any) => ipcRenderer.on('app:confirm-close', callback),
   onNotifyUser: (callback: (type: string, message: string) => void) => 
     ipcRenderer.on('notify-user', (_event, { type, message }) => callback(type, message)),
+  parseSaveFile: () => ipcRenderer.invoke('parse-save-file'),
 });

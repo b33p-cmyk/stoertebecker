@@ -33,21 +33,34 @@
 
     <div class="toolbar">
       <div class="toolbar-left">
-        <button id="btn-export" data-i18n="toolbar.export" class="btn btn-export"><i class="fa-solid fa-file-export" aria-hidden="true"></i> Export</button>
-        <button id="btn-save" class="btn btn-save" data-i18n="toolbar.save" disabled><i class="fa-solid fa-floppy-disk" aria-hidden="true"></i> Speichern</button>
-        <button id="btn-add-category" data-i18n="toolbar.addCategory" class="btn"><i class="fa-solid fa-folder-plus" aria-hidden="true"></i> Neue Kategorie</button>
-        <button id="btn-expand" class="btn btn-ghost btn-icon" data-i18n-title="toolbar.expand"><i class="fa-solid fa-angles-down" aria-hidden="true"></i></button>
-        <button id="btn-collapse" class="btn btn-ghost btn-icon" data-i18n-title="toolbar.collapse"><i class="fa-solid fa-angles-right" aria-hidden="true"></i></button>
-        
-        <button id="btn-diff" class="btn" data-i18n="toolbar.diff"><i class="fa-solid fa-code-compare" aria-hidden="true"></i> Vergleich</button>
+        <button id="btn-export" data-i18n="toolbar.export" class="btn btn-export"><i class="fa-solid fa-file-export"
+            aria-hidden="true"></i> Export</button>
+        <button id="btn-save" class="btn btn-save" data-i18n="toolbar.save" disabled><i class="fa-solid fa-floppy-disk"
+            aria-hidden="true"></i> Speichern</button>
+        <button id="btn-add-category" data-i18n="toolbar.addCategory" class="btn"><i class="fa-solid fa-folder-plus"
+            aria-hidden="true"></i> Neue Kategorie</button>
+        <button id="btn-scan-save" class="btn" data-i18n="toolbar.scanSave"><i
+            class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i> Scan Savegame</button>
+
+        <button id="btn-expand" class="btn btn-ghost btn-icon" data-i18n-title="toolbar.expand"><i
+            class="fa-solid fa-angles-down" aria-hidden="true"></i></button>
+        <button id="btn-collapse" class="btn btn-ghost btn-icon" data-i18n-title="toolbar.collapse"><i
+            class="fa-solid fa-angles-right" aria-hidden="true"></i></button>
+
+        <button id="btn-diff" class="btn" data-i18n="toolbar.diff"><i class="fa-solid fa-code-compare"
+            aria-hidden="true"></i> Vergleich</button>
         <div class="sync-btn-wrapper">
-          <button id="btn-fix-catalog" class="btn btn-warn" data-i18n-title="toolbar.syncCatalog" style="display:none"><i class="fa-solid fa-rotate" aria-hidden="true"></i></button>
+          <button id="btn-fix-catalog" class="btn btn-warn" data-i18n-title="toolbar.syncCatalog"
+            style="display:none"><i class="fa-solid fa-rotate" aria-hidden="true"></i></button>
           <span id="sync-badge" class="sync-badge hidden">0</span>
         </div>
-        
+
         <!--<button id="btn-conflicts" class="btn" data-i18n="toolbar.conflicts">Konflikte</button>--><!-- Na wenn das jemals funktioniert, dann ist der Button hier -->
-        <button id="btn-undo" class="btn btn-ghost btn-icon" data-i18n-title="toolbar.undo" disabled><i class="fa-solid fa-rotate-left" aria-hidden="true"></i></button>
-        <button id="btn-redo" class="btn btn-ghost btn-icon" data-i18n-title="toolbar.redo" disabled><i class="fa-solid fa-rotate-right" aria-hidden="true"></i></button>
+        <button id="btn-undo" class="btn btn-ghost btn-icon" data-i18n-title="toolbar.undo" disabled><i
+            class="fa-solid fa-rotate-left" aria-hidden="true"></i></button>
+        <button id="btn-redo" class="btn btn-ghost btn-icon" data-i18n-title="toolbar.redo" disabled><i
+            class="fa-solid fa-rotate-right" aria-hidden="true"></i></button>
+
       </div>
       <div class="toolbar-center">
         <div class="profile-switcher">
@@ -58,11 +71,16 @@
           <div id="profile-dropdown" class="profile-dropdown hidden">
             <div id="profile-list" class="profile-list"></div>
             <div class="profile-dropdown-actions">
-              <button id="btn-new-profile" class="profile-action-btn" data-i18n="profile.action.new"><i class="fa-solid fa-plus" aria-hidden="true"></i> Neues Profil</button>
-              <button id="btn-duplicate-profile" class="profile-action-btn" data-i18n="profile.action.duplicate"><i class="fa-solid fa-copy" aria-hidden="true"></i> Duplizieren</button>
-              <button id="btn-edit-profile" class="profile-action-btn" data-i18n="profile.action.edit"><i class="fa-solid fa-pen" aria-hidden="true"></i> Bearbeiten</button>
-              <button id="btn-set-template" class="profile-action-btn" data-i18n="profile.action.setTemplate"><i class="fa-solid fa-stamp" aria-hidden="true"></i> Als Template setzen</button>
-              <button id="btn-delete-profile" class="profile-action-btn danger" data-i18n="profile.action.delete"><i class="fa-solid fa-trash" aria-hidden="true"></i> Löschen</button>
+              <button id="btn-new-profile" class="profile-action-btn" data-i18n="profile.action.new"><i
+                  class="fa-solid fa-plus" aria-hidden="true"></i> Neues Profil</button>
+              <button id="btn-duplicate-profile" class="profile-action-btn" data-i18n="profile.action.duplicate"><i
+                  class="fa-solid fa-copy" aria-hidden="true"></i> Duplizieren</button>
+              <button id="btn-edit-profile" class="profile-action-btn" data-i18n="profile.action.edit"><i
+                  class="fa-solid fa-pen" aria-hidden="true"></i> Bearbeiten</button>
+              <button id="btn-set-template" class="profile-action-btn" data-i18n="profile.action.setTemplate"><i
+                  class="fa-solid fa-stamp" aria-hidden="true"></i> Als Template setzen</button>
+              <button id="btn-delete-profile" class="profile-action-btn danger" data-i18n="profile.action.delete"><i
+                  class="fa-solid fa-trash" aria-hidden="true"></i> Löschen</button>
             </div>
           </div>
         </div>
@@ -70,13 +88,16 @@
       <div class="toolbar-right">
         <div class="search-wrapper">
           <input id="search" class="search-input" type="text" data-i18n-placeholder="toolbar.search" />
-            <button id="search-clear" class="search-clear" tabindex="-1" aria-label="Suche löschen"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+          <button id="search-clear" class="search-clear" tabindex="-1" aria-label="Suche löschen"><i
+              class="fa-solid fa-xmark" aria-hidden="true"></i></button>
         </div>
         <div class="filter-btn-wrapper">
-          <button id="btn-filter" class="btn btn-icon" data-i18n-title="filter.button"><i class="fa-solid fa-filter" aria-hidden="true"></i></button>
+          <button id="btn-filter" class="btn btn-icon" data-i18n-title="filter.button"><i class="fa-solid fa-filter"
+              aria-hidden="true"></i></button>
           <span id="filter-badge" class="filter-badge hidden">0</span>
         </div>
-        <button id="btn-settings" class="btn btn-icon tooltip-left" data-i18n-title="toolbar.settings"><i class="fa-solid fa-gear" aria-hidden="true"></i></button>
+        <button id="btn-settings" class="btn btn-icon tooltip-left" data-i18n-title="toolbar.settings"><i
+            class="fa-solid fa-gear" aria-hidden="true"></i></button>
       </div>
     </div>
 
@@ -87,31 +108,44 @@
         <div class="filter-section">
           <div class="filter-section-title" data-i18n="filter.section.status">Status</div>
           <div class="filter-chip-group" id="filter-status-group">
-            <button class="filter-chip filter-chip-radio active" data-value="all"          data-i18n="filter.status.all">Alle</button>
-            <button class="filter-chip filter-chip-radio"        data-value="active"        data-i18n="filter.status.active">Aktiv</button>
-            <button class="filter-chip filter-chip-radio"        data-value="inactive"      data-i18n="filter.status.inactive">Inaktiv</button>
-            <button class="filter-chip filter-chip-radio"        data-value="not-installed" data-i18n="filter.status.notInstalled">Nicht installiert</button>
+            <button class="filter-chip filter-chip-radio active" data-value="all"
+              data-i18n="filter.status.all">Alle</button>
+            <button class="filter-chip filter-chip-radio" data-value="active"
+              data-i18n="filter.status.active">Aktiv</button>
+            <button class="filter-chip filter-chip-radio" data-value="inactive"
+              data-i18n="filter.status.inactive">Inaktiv</button>
+            <button class="filter-chip filter-chip-radio" data-value="not-installed"
+              data-i18n="filter.status.notInstalled">Nicht installiert</button>
           </div>
         </div>
 
         <div class="filter-section">
           <div class="filter-section-title" data-i18n="filter.section.type">Typ</div>
           <div class="filter-chip-group" id="filter-type-group">
-            <button class="filter-chip filter-chip-check" data-value="master"          data-i18n="filter.type.master">Master (ESM)</button>
-            <button class="filter-chip filter-chip-check" data-value="mediumMaster"    data-i18n="filter.type.mediumMaster">Medium Master (ESH)</button>
-            <button class="filter-chip filter-chip-check" data-value="lightMaster"     data-i18n="filter.type.lightMaster">Light Master (ESL)</button>
-            <button class="filter-chip filter-chip-check" data-value="overlay"         data-i18n="filter.type.overlay">Overlay</button>
-            <button class="filter-chip filter-chip-check" data-value="regular"         data-i18n="filter.type.regular">Plugin (ESP)</button>
-            <button class="filter-chip filter-chip-check" data-value="achievementSafe"    data-i18n="filter.type.achievementSafe">Achievement Safe</button>
-            <button class="filter-chip filter-chip-check" data-value="notAchievementSafe" data-i18n="filter.type.notAchievementSafe">Nicht Achievement Safe</button>
-            <button class="filter-chip filter-chip-check" data-value="missingMasters"     data-i18n="filter.type.missingMasters">Fehlende Master</button>
+            <button class="filter-chip filter-chip-check" data-value="master" data-i18n="filter.type.master">Master
+              (ESM)</button>
+            <button class="filter-chip filter-chip-check" data-value="mediumMaster"
+              data-i18n="filter.type.mediumMaster">Medium Master (ESH)</button>
+            <button class="filter-chip filter-chip-check" data-value="lightMaster"
+              data-i18n="filter.type.lightMaster">Light Master (ESL)</button>
+            <button class="filter-chip filter-chip-check" data-value="overlay"
+              data-i18n="filter.type.overlay">Overlay</button>
+            <button class="filter-chip filter-chip-check" data-value="regular" data-i18n="filter.type.regular">Plugin
+              (ESP)</button>
+            <button class="filter-chip filter-chip-check" data-value="achievementSafe"
+              data-i18n="filter.type.achievementSafe">Achievement Safe</button>
+            <button class="filter-chip filter-chip-check" data-value="notAchievementSafe"
+              data-i18n="filter.type.notAchievementSafe">Nicht Achievement Safe</button>
+            <button class="filter-chip filter-chip-check" data-value="missingMasters"
+              data-i18n="filter.type.missingMasters">Fehlende Master</button>
           </div>
         </div>
 
         <div class="filter-section">
           <div class="filter-section-title" data-i18n="filter.section.rating">Mindestbewertung</div>
           <div class="filter-chip-group" id="filter-rating-group">
-            <button class="filter-chip filter-chip-radio active" data-value="0" data-i18n="filter.rating.any">Alle</button>
+            <button class="filter-chip filter-chip-radio active" data-value="0"
+              data-i18n="filter.rating.any">Alle</button>
             <button class="filter-chip filter-chip-radio" data-value="1">★</button>
             <button class="filter-chip filter-chip-radio" data-value="2">★★</button>
             <button class="filter-chip filter-chip-radio" data-value="3">★★★</button>
@@ -123,16 +157,20 @@
         <div class="filter-section">
           <div class="filter-section-title" data-i18n="filter.section.quick">Schnellfilter</div>
           <div class="filter-chip-group" id="filter-quick-group">
-            <button class="filter-chip filter-chip-check" data-value="hasUrl"      data-i18n="filter.quick.hasUrl">Hat URL</button>
-            <button class="filter-chip filter-chip-check" data-value="hasNotes"   data-i18n="filter.quick.hasNotes">Hat Notizen</button>
-            <button class="filter-chip filter-chip-check" data-value="hasWarnings" data-i18n="filter.quick.hasWarnings">Hat Warnungen</button>
+            <button class="filter-chip filter-chip-check" data-value="hasUrl" data-i18n="filter.quick.hasUrl">Hat
+              URL</button>
+            <button class="filter-chip filter-chip-check" data-value="hasNotes" data-i18n="filter.quick.hasNotes">Hat
+              Notizen</button>
+            <button class="filter-chip filter-chip-check" data-value="hasWarnings"
+              data-i18n="filter.quick.hasWarnings">Hat Warnungen</button>
           </div>
         </div>
 
         <div class="filter-section filter-section-tags">
           <div class="filter-section-title" data-i18n="filter.section.tags">Tags</div>
           <div class="filter-chip-group">
-            <button id="filter-no-tags-chip" class="filter-chip filter-chip-check" data-value="noTags" data-i18n="filter.tags.noTags">Hat keine Tags</button>
+            <button id="filter-no-tags-chip" class="filter-chip filter-chip-check" data-value="noTags"
+              data-i18n="filter.tags.noTags">Hat keine Tags</button>
           </div>
           <div class="filter-chip-group filter-tag-cloud" id="filter-tag-group"></div>
         </div>
@@ -163,7 +201,8 @@
               <div id="detail-filename" class="detail-filename"></div>
             </div>
           </div>
-          <button id="detail-close" class="btn btn-ghost detail-close"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+          <button id="detail-close" class="btn btn-ghost detail-close"><i class="fa-solid fa-xmark"
+              aria-hidden="true"></i></button>
         </div>
 
         <div class="detail-body">
@@ -189,18 +228,20 @@
             <label class="detail-label" data-i18n="detail.url">URL</label>
             <div class="detail-input-row">
               <input id="detail-url" class="input detail-input" type="url" placeholder="https://www.nexusmods.com/…" />
-              <button id="detail-url-open" class="btn" data-i18n-title="detail.openInBrowser"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></button>
+              <button id="detail-url-open" class="btn" data-i18n-title="detail.openInBrowser"><i
+                  class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></button>
             </div>
           </div>
           <div class="detail-field">
             <label class="detail-label" data-i18n="detail.notes">Notizen</label>
-            <textarea id="detail-notes" class="input detail-textarea"
-              data-i18n-placeholder="detail.notesPlaceholder" spellcheck="false"></textarea>
+            <textarea id="detail-notes" class="input detail-textarea" data-i18n-placeholder="detail.notesPlaceholder"
+              spellcheck="false"></textarea>
           </div>
         </div>
 
         <div class="detail-footer">
-          <button id="detail-save" class="btn btn-primary" data-i18n="detail.save"><i class="fa-solid fa-floppy-disk" aria-hidden="true"></i> Speichern</button>
+          <button id="detail-save" class="btn btn-primary" data-i18n="detail.save"><i class="fa-solid fa-floppy-disk"
+              aria-hidden="true"></i> Speichern</button>
         </div>
       </aside>
     </div>
@@ -254,7 +295,8 @@
       </div>
       <div class="form-row">
         <label data-i18n="dialog.profile.group">Gruppe</label>
-        <input id="profile-group-input" type="text" class="input" data-i18n-placeholder="dialog.profile.groupPlaceholder" />
+        <input id="profile-group-input" type="text" class="input"
+          data-i18n-placeholder="dialog.profile.groupPlaceholder" />
       </div>
       <div class="dialog-actions">
         <button class="btn btn-ghost" id="profile-dialog-cancel" data-i18n="dialog.cancel">Abbrechen</button>
@@ -315,7 +357,8 @@
 
   <div id="settings-page" class="settings-page hidden">
     <div class="settings-header">
-      <button id="btn-settings-back" class="btn btn-ghost" data-i18n="settings.back"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Zurück</button>
+      <button id="btn-settings-back" class="btn btn-ghost" data-i18n="settings.back"><i class="fa-solid fa-arrow-left"
+          aria-hidden="true"></i> Zurück</button>
       <h2 data-i18n="settings.title">Einstellungen</h2>
     </div>
     <div class="settings-body">
@@ -331,7 +374,7 @@
                 <span class="theme-select-arrow"><i class="fa-solid fa-chevron-down" aria-hidden="true"></i></span>
               </button>
               <div class="theme-select-dropdown hidden" id="theme-select-dropdown">
-                
+
               </div>
             </div>
             <p class="theme-select-desc" id="theme-select-desc"></p>
@@ -349,7 +392,8 @@
 
       <div class="settings-section">
         <h3 data-i18n="settings.paths">Pfade</h3>
-        <p class="settings-section-hint" data-i18n="settings.starfield.pathsAbsolute">Pfade sollten absolut sein, nicht relativ.</p>
+        <p class="settings-section-hint" data-i18n="settings.starfield.pathsAbsolute">Pfade sollten absolut sein, nicht
+          relativ.</p>
         <div class="settings-field">
           <label data-i18n="settings.starfieldAppData">Starfield AppData-Pfad</label>
           <p class="settings-hint" data-i18n="settings.starfieldAppData.hint">Enthält Plugins.txt und ContentCatalog.txt
@@ -365,7 +409,8 @@
             <input type="checkbox" id="settings-create-backup" />
             <span data-i18n="settings.createBackupOnExport">Backup beim Export erstellen</span>
           </label>
-          <p class="settings-hint" data-i18n="settings.createBackupOnExport.hint">Sichert Plugins.txt vor jedem Export automatisch</p>
+          <p class="settings-hint" data-i18n="settings.createBackupOnExport.hint">Sichert Plugins.txt vor jedem Export
+            automatisch</p>
         </div>
 
         <div class="settings-field settings-checkbox-field">
@@ -373,15 +418,18 @@
             <input type="checkbox" id="settings-autoSyncContentCatalog" />
             <span data-i18n="settings.autoSyncContentCatalog">ContentCatalog.txt automatisch schreiben</span>
           </label>
-          <p class="settings-hint" data-i18n="settings.autoSyncContentCatalog.hint">Schreibt die ContentCatalog.txt beim Start von Starfield aus neu</p>
+          <p class="settings-hint" data-i18n="settings.autoSyncContentCatalog.hint">Schreibt die ContentCatalog.txt beim
+            Start von Starfield aus neu</p>
         </div>
 
         <div class="settings-field settings-checkbox-field">
           <label>
             <input type="checkbox" id="settings-createContentCatalogBackupOnSync" />
-            <span data-i18n="settings.createContentCatalogBackupOnSync">Backup von ContentCatalog.txt beim Sync erstellen</span>
+            <span data-i18n="settings.createContentCatalogBackupOnSync">Backup von ContentCatalog.txt beim Sync
+              erstellen</span>
           </label>
-          <p class="settings-hint" data-i18n="settings.createContentCatalogBackupOnSync.hint">Sichert ContentCatalog.txt automatisch vor jeder Synchronisation</p>
+          <p class="settings-hint" data-i18n="settings.createContentCatalogBackupOnSync.hint">Sichert ContentCatalog.txt
+            automatisch vor jeder Synchronisation</p>
         </div>
 
         <div class="settings-field">
@@ -429,13 +477,15 @@
         <div class="settings-field settings-checkbox-field">
           <label>
             <input type="checkbox" id="settings-ignore-blueprint-masters" />
-            <span data-i18n="settings.ignoreBlueprintMasters">Blueprint Masters ignorieren (nicht laden, nicht exportieren)</span>
+            <span data-i18n="settings.ignoreBlueprintMasters">Blueprint Masters ignorieren (nicht laden, nicht
+              exportieren)</span>
           </label>
         </div>
       </div>
       <div class="settings-section">
         <h3 data-i18n="settings.launch">Starten</h3>
-        <p class="settings-section-hint"  data-i18n="settings.starfield.pathsAbsolute">Pfade sollten absolut sein, nicht relativ.</p>
+        <p class="settings-section-hint" data-i18n="settings.starfield.pathsAbsolute">Pfade sollten absolut sein, nicht
+          relativ.</p>
 
         <div class="settings-field">
           <label data-i18n="settings.sfseExe">SFSE Executable</label>
@@ -518,6 +568,22 @@
       </div>
       <div class="dialog-actions">
         <button id="about-close-btn" class="btn btn-primary" data-i18n="about.close">Schließen</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="save-scan-overlay" class="overlay hidden">
+    <div class="dialog save-scan-dialog">
+      <div class="dialog-header">
+        <h3 id="save-scan-title"></h3>
+        <button id="save-scan-close" class="btn btn-ghost btn-icon">
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div id="save-scan-meta" class="save-scan-meta"></div>
+      <div id="save-scan-lists" class="save-scan-lists"></div>
+      <div class="dialog-actions">
+        <button id="save-scan-ok" class="btn btn-primary" data-i18n="about.close">Schließen</button>
       </div>
     </div>
   </div>

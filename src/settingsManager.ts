@@ -9,6 +9,7 @@ import { atomicWriteFile } from './fsUtils';
 export interface AppSettings {
     starfieldAppDataPath: string;
     starfieldDataPath: string;
+    starfieldSavesPath: string;
     appDataPath: string;
     baseMasters: string[];
     blueprintMasters: string[];
@@ -42,6 +43,7 @@ export function getDefaultSettings(): AppSettings {
     return {
         starfieldAppDataPath: path.join(os.homedir(), 'AppData', 'Local', 'Starfield'),
         starfieldDataPath: path.join(app.getPath('documents'), 'My Games', 'Starfield', 'Data'),
+        starfieldSavesPath: path.join(app.getPath('documents'), 'My Games', 'Starfield', 'Saves'),
         appDataPath: getDataBasePath(),
         baseMasters: [
             'Starfield.esm',
@@ -54,11 +56,15 @@ export function getDefaultSettings(): AppSettings {
             'SFBGS007.esm',
             'SFBGS008.esm',
             'BlueprintShips-Starfield.esm',
+            'SFBGS047.esm',
+            'sfbgs00d.esm',
+            'SFBGS050.esm'
         ],
         blueprintMasters: [
             'BlueprintShips-Starfield.esm',
             'blueprintships-sfta03.esm',
-            'blueprintships-sfta06.esm'
+            'blueprintships-sfta06.esm',
+            'BlueprintShips-SFBGS050.esm',
         ],
         ignoreBaseMasters: true,
         ignoreBlueprintMasters: true,

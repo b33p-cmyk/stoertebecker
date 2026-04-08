@@ -15,6 +15,7 @@ import { initLaunchBar } from './launchBar.js';
 import { openDiffDialog, initDiffDialog, updateDiffStatus } from './diffDialog.js';
 import { initConflictDialog, openConflictDialog } from './conflictDialog.js';
 import { initAboutDialog, openAboutDialog } from './aboutDialog.js';
+import { initSavegameDialog } from './savegameDialog.js';
 import { warn, info, success, error, clearWarnings } from './logger.js';
 import { initFilterPanel, refreshFilterTags, applyFilter, hasActiveFilters } from './filterPanel.js';
 
@@ -1032,6 +1033,7 @@ initDiffDialog();
 btnDiff.addEventListener('click', () => openDiffDialog(allPlugins, categories));
 initConflictDialog();
 initAboutDialog();
+initSavegameDialog(() => allPlugins);
 initTooltips();
 document.getElementById('about-trigger').addEventListener('click', openAboutDialog);
 btnConflicts?.addEventListener('click', () => {

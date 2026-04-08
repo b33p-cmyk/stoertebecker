@@ -3,6 +3,7 @@
 import { StarfieldMod } from './pluginLoader';
 import { Category } from './categoryManager';
 import { ModMetadata } from './metadataManager';
+import { StarfieldSave } from './savegameParser';
 
 export { };
 
@@ -44,6 +45,7 @@ declare global {
             setDirty: (value: boolean) => void;
             onConfirmClose: (callback: any) => void;
             onNotifyUser: (callback: (type: string, message: string) => void) => void;
+            parseSaveFile: () => Promise<StarfieldSave | null>;
         };
     }
 

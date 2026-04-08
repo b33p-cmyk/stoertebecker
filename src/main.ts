@@ -13,6 +13,7 @@ import { ConflictDetector } from './conflictDetector';
 import { atomicWriteFile, buildFileMap, fileExistsInMap } from './fsUtils';
 import * as fs from 'fs/promises';
 import { CatalogSyncManager } from './catalogSyncManager';
+import { parseSave } from './savegameParser';
 
 Menu.setApplicationMenu(null);
 
@@ -381,6 +382,17 @@ handleWithCatch('detect-conflicts', async (event, pluginNames: string[]) => {
       pluginName: name,
     });
   });
+});
+
+handleWithCatch('parse-save-file', async (event) => {
+  const win = BrowserWindow.fromWebContents(event.sender)!;
+  const result = await dialog.showOpenDialog(win, {
+    defaultPath: SettingsManager.get().starfieldSavesPath,
+    filters: [{ name: 'Starfield Save', extensions: ['sfs'] }],
+    properties: ['openFile'],
+  });
+  if (result.canceled || !result.filePaths[0]) return null;
+  return parseSave(result.filePaths[0]);
 });
 
 app.on('window-all-closed', () => {

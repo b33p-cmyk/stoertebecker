@@ -1,7 +1,7 @@
 {
   "name": "stoertebecker",
   "productName": "Störtebecker",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Starfield Mod Load Order Manager",
   "main": "dist/main.js",
   "scripts": {
@@ -15,27 +15,25 @@
     "appId": "com.beepcmyk.stoertebecker",
     "productName": "Störtebecker",
     "asar": true,
-
     "files": [
       "dist/**/*",
       "renderer/**/*",
       "resources/**/*"
     ],
-
     "directories": {
       "output": "release"
     },
-
     "win": {
       "target": [
         {
           "target": "nsis",
-          "arch": ["x64"]
+          "arch": [
+            "x64"
+          ]
         }
       ],
       "icon": "resources/stbkr.ico"
     },
-
     "nsis": {
       "oneClick": false,
       "perMachine": false,
